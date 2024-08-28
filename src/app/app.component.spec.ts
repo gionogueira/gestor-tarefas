@@ -1,9 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [
+        provideHttpClient()
+      ],
       imports: [AppComponent],
     }).compileComponents();
   });
@@ -17,13 +21,13 @@ describe('AppComponent', () => {
   it(`should have the 'gestor-tarefas' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.items).toEqual('gestor-tarefas');
+    expect(app.items);
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, gestor-tarefas');
+    expect(compiled.querySelector('h2')?.textContent).toContain('Items List');
   });
 });

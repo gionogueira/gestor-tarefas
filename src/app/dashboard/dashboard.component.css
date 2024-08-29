@@ -1,0 +1,41 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+::ng-deep mat-grid-tile.tile-text .mat-grid-tile-content {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tile-text h2{
+  margin: 0;
+}
+
+::ng-deep mat-grid-tile.tile-button .mat-grid-tile-content {
+  justify-content: end;
+  margin-right: 6px;
+  align-items: center;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}

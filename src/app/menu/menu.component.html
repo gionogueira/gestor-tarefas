@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>EsigGROUP</mat-toolbar>
+    <mat-nav-list class="nav">
+      <a mat-list-item class="oi" href="#"><mat-icon>space_dashboard</mat-icon> Dashboard</a>
+      <a mat-list-item href="#"><mat-icon>splitscreen</mat-icon> Tarefas</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <mat-toolbar-row>
+        <mat-icon class="toolbar-icon">search</mat-icon>
+        <span class="spacer"></span>
+        <button mat-button class="button-menu" [matMenuTriggerFor]="menu">
+          <img src="https://static.vecteezy.com/system/resources/previews/011/459/669/original/people-avatar-icon-png.png" alt="Your Image" class="button-image">
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Meu Perfil</button>
+          <button mat-menu-item>Configurações</button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

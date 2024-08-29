@@ -1,0 +1,21 @@
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$gestor-tarefas-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+  ),
+  typography: (
+    brand-family: "Plus Jakarta Sans",
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+:root {
+  @include mat.all-component-themes($gestor-tarefas-theme);
+}
+
